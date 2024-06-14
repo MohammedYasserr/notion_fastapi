@@ -4,14 +4,11 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-
-
 class RequestHandler(BaseModel):
-    """
-    Class Handler that handles the request.
-    
-    """
     task : str
+
+class User(BaseModel):
+    email : str
 
 
 @app.get("/")
