@@ -13,4 +13,4 @@ class User(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "This is me"}
