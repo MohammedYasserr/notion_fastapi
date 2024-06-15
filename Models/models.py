@@ -36,3 +36,4 @@ class Task(Base):
     completed = Column(Boolean, index=True)
     owner_id = Column(Integer,ForeignKey(User.id))
     owner = relationship("User", back_populates="tasks") 
+    
