@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
+
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/items/{item_id}")
 async def root():
-    return {"message": "Hello World"}
-
+    return {"items": "These are the items"}
