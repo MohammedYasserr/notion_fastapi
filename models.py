@@ -1,12 +1,17 @@
 import datetime 
 from sqlalchemy import Column, Integer, String, DateTime, create_engine, Boolean, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-
+from sqlalchemy.orm import relationship
 
 
 Base = declarative_base()
 
 class User(Base):
+    
+    """
+    This is the postgreSQL schema for Task creation. 
+    """
+    
     _tablename_ = 'users'
     
     id = Column(Integer, primary_key=True, index=True)
@@ -19,6 +24,10 @@ class User(Base):
 
 class Task(Base):
     
+    """
+    This is the postgreSQL schema for Task creation. 
+    """
+    
     _tablename_ = 'tasks'
     
     id = Column(Integer, primary_key=True , index=True )
@@ -26,4 +35,4 @@ class Task(Base):
     description = Column(String, index=True)
     completed = Column(Boolean, index=True)
     owner_id = Column(Integer,ForeignKey(User.id))
-    # owner = relationship("User", back_populates="tasks") 
+    owner = relationship("User", back_populates="tasks") 
