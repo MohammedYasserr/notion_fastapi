@@ -1,8 +1,15 @@
-from fastapi import FastAPI, Depends
-from fastapi.security import OAuth2PasswordBearer
-import sys
-from Validations import schema
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer,OAuth2PasswordRequestForm
+from passlib.context import CryptContext
+from jose import JWTError,jwt
+from typing import List 
 from sqlalchemy.orm import Session
+import datetime
+
+
+import Models
+from Validations import schema
+
 
 app = FastAPI()
 

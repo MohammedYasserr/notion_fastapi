@@ -2,3 +2,6 @@ fastapi==0.110.0
 uvicorn
 SQLAlchemy==2.0.30
 psycopg2-binary 
+passlib
+python-jose
+PyJWT==2.1.0
