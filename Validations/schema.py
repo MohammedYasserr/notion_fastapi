@@ -21,20 +21,16 @@ class User(UserBase):
     id : int
     created_at : datetime.datetime
     
-    
     class Config : 
         orm_mode: True
         
-
 class Token(BaseModel):
     access_token : str
     token_type : str
     
-
 class TokenData(BaseModel):
     username : Optional[str] = None
-    
-    
+        
 """
 The Below Pydantic Validation Classes are for Task creation validation.
 """
@@ -44,16 +40,11 @@ class TaskBase(BaseModel):
     description : Optional[str] = None
     completed : bool  = False
 
-
 class TaskCreate(TaskBase):
     pass
-
-
 class Task(TaskBase):
     id :int
     owner_id:int
     
     class Config:
         orm_mode:True
-        
-    
