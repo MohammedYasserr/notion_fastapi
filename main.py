@@ -5,13 +5,19 @@ from jose import JWTError,jwt
 from typing import List 
 from sqlalchemy.orm import Session
 import datetime
-
+from pydantic import BaseModel
 
 import Models
 from Validations import schema
 
+from databases import engine,sessionLocal
+import models
 
 app = FastAPI()
+models.Base.metadata.create_all(bind=engine)
+
+
+
 
 
 @app.get("/tasks/" , response_model=list[schema.Task])
