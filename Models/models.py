@@ -24,10 +24,10 @@ class User(Base):
 
 class Task(Base):
     
+    
     """
     This is the postgreSQL schema for Task creation. 
     """
-    
     _tablename_ = 'tasks'
     
     id = Column(Integer, primary_key=True , index=True )
