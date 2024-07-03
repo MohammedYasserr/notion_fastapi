@@ -2,9 +2,9 @@ import datetime
 from sqlalchemy import Column, Integer, String, DateTime, create_engine, Boolean, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from databases import Base
 
 
-Base = declarative_base()
 
 class User(Base):
     
@@ -12,7 +12,7 @@ class User(Base):
     This is the postgreSQL schema for Task creation. 
     """
     
-    _tablename_ = 'users'
+    __tablename__ = 'users'
     
     id = Column(Integer, primary_key=True, index=True)
     Username  = Column(String, unique=True, index=True)
@@ -28,7 +28,7 @@ class Task(Base):
     """
     This is the postgreSQL schema for Task creation. 
     """
-    _tablename_ = 'tasks'
+    __tablename__ = 'tasks'
     
     id = Column(Integer, primary_key=True , index=True )
     title = Column(String, index=True)
