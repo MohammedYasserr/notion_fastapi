@@ -10,6 +10,8 @@ import Models
 from Validations import schema
 from databases import engine,sessionLocal
 import models
+from typing import Annotated
+from Validations import schema
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine) 
@@ -22,4 +24,9 @@ def get_db():
     finally:
         db.close()
         
+db_dependency = Annotated[Session, Depends(get_db)]
 
+# @app.post('/task')
+# async def create_task(task:schema.TaskBase):
+    
+    
